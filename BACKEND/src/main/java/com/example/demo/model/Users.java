@@ -1,16 +1,16 @@
 package com.example.demo.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
-
-@Document(collection="users")
+@Entity
+@Table(name = "users")
 @Data
 public class Users {
+
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String username;
 
@@ -33,5 +33,4 @@ public class Users {
     private String medicalConditions;
 
     private String wheelchairNeeded;
-
 }

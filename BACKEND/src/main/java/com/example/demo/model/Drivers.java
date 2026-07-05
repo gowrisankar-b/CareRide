@@ -1,14 +1,16 @@
 package com.example.demo.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "drivers")
+@Entity
+@Table(name = "drivers")
 @Data
 public class Drivers {
+
     @Id
-    private String driverId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long driverId;
 
     private String username;
 
